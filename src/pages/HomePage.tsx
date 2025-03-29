@@ -15,6 +15,8 @@ const HomePage = () => {
     "Sleek Design",
     "Session Management",
   ];
+  
+  {/** @ts-ignore */}
   const [token, setToken] = React.useState<string | null>(null);
   const navigate = useNavigate()
 
