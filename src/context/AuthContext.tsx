@@ -13,8 +13,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!token) {
-      navigate("/");
+    const path = window.location.pathname;
+    if(token && path === "/login"){
+      navigate("/users");
+    }
+    if (!token && path !== "/login" && path !== "/") {
+      navigate("/login");
     }
   }, [token, navigate]);
 
