@@ -57,14 +57,14 @@ const HomePage = () => {
                 borderRadius="1.75rem"
                 className="bg-gradient-to-l text-transparent from-orange-600 to-pink-600 bg-clip-text cursor-pointer"
                 >
-                  <a href="/users">See Users</a>
+                  <button className="cursor-pointer" onClick={() => navigate("/users")}>See Users</button>
                 </Button>
               ) : (
                 <Button
                 borderRadius="1.75rem"
                 className="bg-gradient-to-l text-transparent from-orange-600 to-pink-600 bg-clip-text cursor-pointer"
               >
-                <button onClick={() => navigate("/login")}>Sign In</button>
+                <button className="cursor-pointer" onClick={() => navigate("/login")}>Sign In</button>
               </Button>
               )}
             </div>

@@ -7,8 +7,10 @@ import { BackgroundGradient } from "../components/ui/background-gradient";
 import { loginUser } from "../services/api";
 import { motion } from "framer-motion";
 import { IconBrandGithub } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const navigate = useNavigate()
   const [email, setEmail] = useState("eve.holt@reqres.in");
   const [password, setPassword] = useState("cityslicka");
   const [error, setError] = useState("");
@@ -21,7 +23,7 @@ const LoginPage = () => {
     try {
       const { data } = await loginUser({ email, password });
       localStorage.setItem("token", data.token);
-      window.location.href = "/users";
+      navigate("/");
     } catch (err: any) {
       setError(err.response?.data?.error || "Login failed");
     } finally {
