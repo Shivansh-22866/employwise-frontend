@@ -1,54 +1,118 @@
-# React + TypeScript + Vite
+# EmployWise User Management Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-Currently, two official plugins are available:
+A modern user management dashboard built with React and the Reqres API, featuring authentication, CRUD operations, and sleek UI animations.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Dashboard Preview](https://via.placeholder.com/800x400.png?text=Dashboard+Preview) <!-- Add real screenshot -->
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 🔐 JWT Authentication
+- 📃 Paginated User Listing
+- ✏️ User Editing & Deletion
+- 📱 Fully Responsive Design
+- ✨ Modern UI with Animations
+- ⚡ Lazy Loading Components
+- 🛠️ Error Handling & Form Validation
+- 🔄 Real-time State Management
+- 🌓 Dark Mode Aesthetic
+- 🔗 GitHub Source Code Integration
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+### Prerequisites
+- Node.js ≥16.x
+- npm ≥9.x
+
+### Installation
+```bash
+git clone https://github.com/yourusername/employwise-dashboard.git
+cd employwise-dashboard
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Usage
+1. Login
+   
+   Use demo credentials:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+   ```bash
+    Email: eve.holt@reqres.in
+    Password: cityslicka
+   ```
+
+2. User management
+   
+   - Browse paginated user list
+   - Edit user details with inline form
+   - Delete users with confirmation dialog
+
+3. Navigation
+
+   - Protected routes for authenticated users
+   - Responsive navbar with profile dropdown
+   - Logout functionality
+
+4. Tech Stack
+
+   - Frontend:
+
+     React | TypeScript | Tailwind CSS
+React Router | Axios | Framer Motion
+react-toastify | Heroicons
+
+   - Backend:
+  
+     Reqres.in Mock API
+
+   - Build Tools:
+
+      Vite | npm
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+| ---- | ---- | ---- |
+| POST | /api/login | User Authentication |
+| GET | /api/users?page=1 | Get paginated Users |
+| PUT | /api/users/{id} | Update user details |
+| DELETE | /api/user/{id} | Delete User |
+
+## Project Structure
+
+```bash
+src/
+├── components/       # Reusable components
+├── pages/            # Route-based pages
+├── services/         # API service layer
+├── context/         # React context providers
+├── lib/            # Helper functions & constants
+└── App.tsx           # Main application router
 ```
+
+## Key Components
+
+- #### Authentication System
+  
+  JWT token storage with React Context
+
+- #### Protected Routes
+
+  Route guarding for authenticated users
+
+- #### Animated UI
+
+  Framer Motion animations and transitions
+
+- #### Modern Loading States
+
+  Skeleton loaders and progress indicators
+
+- #### Error Handling
+
+  Toast notifications and error boundaries
