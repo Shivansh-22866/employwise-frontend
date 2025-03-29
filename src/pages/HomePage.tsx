@@ -1,11 +1,12 @@
 "use client"
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Spotlight } from "../components/ui/spotlight-new";
 import { PlaceholdersAndVanishInput } from "../components/ui/placeholders-and-vanish-input";
 import { Button } from "../components/ui/moving-border";
 import HomeCards from "../components/HomeCards";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const HomePage = () => {
   const placeholders = [
@@ -24,7 +25,7 @@ const HomePage = () => {
     e.preventDefault();
     console.log("submitted");
   };
-  const token = localStorage.getItem("token");
+  const {token} = useAuth()
   return (
     <>
       <div className="flex flex-col justify-center items-center gap-4">
@@ -52,21 +53,13 @@ const HomePage = () => {
                   onSubmit={onSubmit}
                 />
               </span>
-              {token ? (
-                <Button
+              <Button
                 borderRadius="1.75rem"
-                className="bg-gradient-to-l text-transparent from-orange-600 to-pink-600 bg-clip-text cursor-pointer"
-                >
-                  <button className="cursor-pointer" onClick={() => navigate("/users")}>See Users</button>
-                </Button>
-              ) : (
-                <Button
-                borderRadius="1.75rem"
-                className="bg-gradient-to-l text-transparent from-orange-600 to-pink-600 bg-clip-text cursor-pointer"
+                className="bg-gradient-to-l from-orange-600 to-pink-600 text-white"
+                onClick={() => navigate(token ? "/users" : "/login")}
               >
-                <button className="cursor-pointer" onClick={() => navigate("/login")}>Sign In</button>
+                {token ? "See Users" : "Sign In"}
               </Button>
-              )}
             </div>
           </div>
         </div>
