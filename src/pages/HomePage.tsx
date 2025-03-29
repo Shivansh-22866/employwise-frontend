@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect } from "react";
+import React from "react";
 import { Spotlight } from "../components/ui/spotlight-new";
 import { PlaceholdersAndVanishInput } from "../components/ui/placeholders-and-vanish-input";
 import { Button } from "../components/ui/moving-border";
@@ -15,9 +15,6 @@ const HomePage = () => {
     "Sleek Design",
     "Session Management",
   ];
-  
-  {/** @ts-ignore */}
-  const [token, setToken] = React.useState<string | null>(null);
   const navigate = useNavigate()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,15 +24,7 @@ const HomePage = () => {
     e.preventDefault();
     console.log("submitted");
   };
-
-  useEffect(() => {
-    if (token) {
-      localStorage.setItem("token", token);
-    } else {
-      localStorage.removeItem("token");
-    }
-  }, [token]);
-
+  const token = localStorage.getItem("token");
   return (
     <>
       <div className="flex flex-col justify-center items-center gap-4">
