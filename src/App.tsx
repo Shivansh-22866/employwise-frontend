@@ -1,11 +1,20 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
+import { AuthProvider } from './context/AuthContext'
+import Login from './pages/Login'
+import UserList from './pages/Userlist'
 
 function App() {
 
   return (
-    <>
-      <p className='w-full text-3xl text-center text-red-300'>React App</p>
-    </>
+    <BrowserRouter>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/users" element={<UserList />} />
+        </Routes>
+      </AuthProvider>
+    </BrowserRouter>
   )
 }
 
