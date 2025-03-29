@@ -1,8 +1,11 @@
+"use client"
+
 import React from "react";
 import { Spotlight } from "../components/ui/spotlight-new";
 import { PlaceholdersAndVanishInput } from "../components/ui/placeholders-and-vanish-input";
 import { Button } from "../components/ui/moving-border";
 import HomeCards from "../components/HomeCards";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   const placeholders = [
@@ -12,6 +15,7 @@ const HomePage = () => {
     "Sleek Design",
     "Session Management",
   ];
+  const navigate = useNavigate()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
@@ -60,7 +64,7 @@ const HomePage = () => {
                 borderRadius="1.75rem"
                 className="bg-gradient-to-l text-transparent from-orange-600 to-pink-600 bg-clip-text cursor-pointer"
               >
-                <a href="/login">Sign In</a>
+                <button onClick={() => navigate("/login")}>Sign In</button>
               </Button>
               )}
             </div>
